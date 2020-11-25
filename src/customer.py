@@ -6,12 +6,12 @@ class Customer():
         self.drunkenness = drunkenness
 
 
-    def buy_drink(self, drink_to_buy, current_pub):
-        if self.age >= 18 and self.drunkenness <= 20:
-            self.wallet -= drink_to_buy.price
-            current_pub.till += drink_to_buy.price
-        else:
-            return False
+    def buy_drink(self, drink_to_buy):
+        self.wallet -= drink_to_buy.price
+
+    def food_rejuvenate(self, food):
+        self.drunkenness -= food.rejuvenation_level
+
     
 
     

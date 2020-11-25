@@ -2,6 +2,7 @@ import unittest
 from src.customer import Customer
 from src.drink import Drink
 from src.pub import Pub
+from src.food import Food
 
 class TestCustomer(unittest.TestCase):
     def setUp(self):
@@ -15,27 +16,16 @@ class TestCustomer(unittest.TestCase):
     def test_customer_has_wallet(self):
         self.assertEqual(50, self.customer.wallet)
 
-    def test_customer_buys_drink(self):
-        drink = Drink("Beer", 5, 5)
-        the_prancing_pony = Pub("The Prancing Pony", 100, drink)
-        self.customer.buy_drink(drink, the_prancing_pony)
-        self.assertEqual(45, self.customer.wallet)
-        self.assertEqual(105, the_prancing_pony.till)
 
-    def test_customer_denied_service_age(self):
-        drink = Drink("Beer", 5, 5)
-        the_prancing_pony = Pub("The Prancing Pony", 100, drink)
-        self.customer_2.buy_drink(drink, the_prancing_pony)
-        self.assertEqual(20, self.customer_2.wallet)
-        self.assertEqual(100, the_prancing_pony.till)
-        
+    def test_food_rejuvenates(self):
+        food = Food("chips", 6, 3)
+        self.customer_3.food_rejuvenate(food)
+        self.assertEqual(22, self.customer_3.drunkenness)
 
-    def test_customer_denied_service_drunk(self):
-        drink = Drink("Beer", 5, 5)
-        the_prancing_pony = Pub("The Prancing Pony", 100, drink)
-        self.customer_3.buy_drink(drink, the_prancing_pony)
-        self.assertEqual(30, self.customer_3.wallet)
-        self.assertEqual(100, the_prancing_pony.till)
+
+
+
+  
 
         
         
